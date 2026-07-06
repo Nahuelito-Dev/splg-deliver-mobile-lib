@@ -7,11 +7,11 @@ part of 'discount.dart';
 // **************************************************************************
 
 Discount _$DiscountFromJson(Map<String, dynamic> json) => Discount(
-  quantity: (json['quantity'] as num).toInt(),
-  percentage: (json['percentage'] as num).toDouble(),
-);
+      quantity: (json['quantity'] as num).toInt(),
+      percentage: (json['discountPercentage'] as num).toDouble(),
+    );
 
 Map<String, dynamic> _$DiscountToJson(Discount instance) => <String, dynamic>{
-  'quantity': instance.quantity,
-  'percentage': instance.percentage,
-};
+      'quantity': instance.quantity,
+      'discountPercentage': instance.percentage,
+    };

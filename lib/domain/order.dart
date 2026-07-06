@@ -128,7 +128,9 @@ enum PaymentMethod {
   @JsonValue('cash')
   cash('Efectivo'),
   @JsonValue('online')
-  online('Pago online');
+  online('Pago online'),
+  @JsonValue('mercadopago')
+  mercadoPago('Mercado Pago');
 
   const PaymentMethod(this.label);
   final String label;

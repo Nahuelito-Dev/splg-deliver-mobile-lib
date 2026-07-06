@@ -7,18 +7,17 @@ part of 'gas_cylinder.dart';
 // **************************************************************************
 
 GasCylinder _$GasCylinderFromJson(Map<String, dynamic> json) => GasCylinder(
-  id: json['gas_cylinder_id'] as String,
-  type: json['type'] as String,
-  price: _parsePrice(json['price']),
-  active: json['isActive'] as bool,
-  weight: json['weight'] as String,
-  description: json['description'] as String,
-  discounts:
-      (json['promotions'] as List<dynamic>?)
-          ?.map((e) => Discount.fromJson(e as Map<String, dynamic>))
-          .toList() ??
-      const [],
-);
+      id: json['gas_cylinder_id'] as String,
+      type: json['type'] as String,
+      price: _parsePrice(json['price']),
+      active: json['isActive'] as bool,
+      weight: json['weight'] as String,
+      description: json['description'] as String,
+      discounts: (json['promotions'] as List<dynamic>?)
+              ?.map((e) => Discount.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+    );
 
 Map<String, dynamic> _$GasCylinderToJson(GasCylinder instance) =>
     <String, dynamic>{

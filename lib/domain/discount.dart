@@ -15,7 +15,9 @@ class Discount with _$Discount {
 
   @override
   final int quantity;
-  
+
+  // El backend envía la clave 'discountPercentage' (no 'percentage').
   @override
+  @JsonKey(name: 'discountPercentage')
   final double percentage;
 }
