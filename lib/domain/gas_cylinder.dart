@@ -31,7 +31,7 @@ class GasCylinder with _$GasCylinder {
   final String type;
 
   @override
-  @JsonKey(name: "weight")
+  @JsonKey(name: "weight", fromJson: _parseWeight)
   final String weight;
 
   @override
@@ -39,7 +39,7 @@ class GasCylinder with _$GasCylinder {
   final double price;
 
   @override
-  @JsonKey(name: "isActive")
+  @JsonKey(name: "isActive", defaultValue: true)
   final bool active;
 
   @override
@@ -71,4 +71,12 @@ double _parsePrice(dynamic value) {
   } else {
     return 0.0;
   }
+}
+
+// El backend a veces manda "weight" como número (ej. 10) y a veces como
+// String (ej. "10"). Toleramos ambos formatos para no romper el parseo
+// de listas completas por un solo item mal tipado.
+String _parseWeight(dynamic value) {
+  if (value == null) return '';
+  return value.toString();
 }
