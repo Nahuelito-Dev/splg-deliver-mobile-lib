@@ -12,9 +12,9 @@ Address _$AddressFromJson(Map<String, dynamic> json) => Address(
       latitude: json['latitude'] as String?,
       longitude: json['longitude'] as String?,
       city: json['city'] as String?,
-      postalCode: json['postalCode'] as String?,
-      formattedAddress: json['formattedAddress'] as String?,
-      additionalInstructions: json['additionalInstructions'] as String?,
+      postalCode: json['postal_code'] as String?,
+      formattedAddress: json['formatted_address'] as String?,
+      additionalInstructions: json['additional_instructions'] as String?,
       primary: json['isDefault'] as bool? ?? true,
     );
 
@@ -24,8 +24,8 @@ Map<String, dynamic> _$AddressToJson(Address instance) => <String, dynamic>{
       'city': instance.city,
       'latitude': instance.latitude,
       'longitude': instance.longitude,
-      'postalCode': instance.postalCode,
-      'formattedAddress': instance.formattedAddress,
-      'additionalInstructions': instance.additionalInstructions,
+      'postal_code': instance.postalCode,
+      'formatted_address': instance.formattedAddress,
+      'additional_instructions': instance.additionalInstructions,
       'isDefault': instance.primary,
     };

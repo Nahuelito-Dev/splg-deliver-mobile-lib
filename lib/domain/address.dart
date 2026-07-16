@@ -44,15 +44,15 @@ class Address with _$Address {
   final String? longitude;
   
   @override
-  @JsonKey(name: 'postalCode')
+  @JsonKey(name: 'postal_code')
   final String? postalCode;
 
   @override
-  @JsonKey(name: 'formattedAddress')
+  @JsonKey(name: 'formatted_address')
   final String? formattedAddress;
 
   @override
-  @JsonKey(name: 'additionalInstructions')
+  @JsonKey(name: 'additional_instructions')
   final String? additionalInstructions;
 
   @override
