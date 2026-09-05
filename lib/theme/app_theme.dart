@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:jennygas_lib/theme/app_text_colors.dart';
-import 'package:jennygas_lib/theme/app_text_theme.dart';
+import 'package:splg_lib/theme/app_text_colors.dart';
+import 'package:splg_lib/theme/app_text_theme.dart';
 
 import 'app_colors.dart';
 

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:jennygas_lib/domain/discount.dart';
+import 'package:splg_lib/domain/discount.dart';
 
 part 'gas_cylinder.freezed.dart';
 part 'gas_cylinder.g.dart';

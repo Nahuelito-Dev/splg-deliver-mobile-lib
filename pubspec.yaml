@@ -1,7 +1,7 @@
-name: jennygas_lib
+name: splg_lib
 description: "This lib contains core classes and widget for customer and driver apps."
 version: 1.0.1
-homepage: 'https://github.com/fervlx/jennygas_lib'
+homepage: 'https://github.com/Nahuelito-Dev/splg-lib'
 
 environment:
   sdk: '>=3.0.3 <4.0.0'
