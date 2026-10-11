@@ -16,6 +16,8 @@ dependencies:
   json_annotation: ^4.9.0
   # permisos del sistema
   permission_handler: ^12.0.1
+  # mapa: tipos y marcadores de la ruta y del vehículo
+  google_maps_flutter: ^2.14.0
   # íconos (MIT)
   phosphor_flutter: ^2.1.0
 

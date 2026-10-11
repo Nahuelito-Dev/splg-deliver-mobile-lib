@@ -40,3 +40,10 @@ Licencia: CC0 1.0 (dominio público; el repositorio la declara en su
 | Qué | Fuente | Licencia |
 |---|---|---|
 | Geist (`fonts/geist/`) | https://github.com/vercel/geist-font | SIL Open Font License 1.1 (`fonts/geist/OFL.txt`, registrada con `registerSplgLicenses()`) |
+
+## Mapa: vehículo y ruta
+
+| Qué | Fuente | Licencia |
+|---|---|---|
+| Ícono del vehículo (camioneta vista desde arriba, `SplgVehicleIcon`) | Dibujado en código con `dart:ui` (formas y colores de la paleta Brasa); no hay archivo de imagen ni arte de terceros | Propio del proyecto |
+| Rutas por calles | Directions API de Google (con `DIRECTIONS_API_KEY`) o, sólo en desarrollo, el servidor público de OSRM (datos © OpenStreetMap, ODbL) | Términos de Google Maps Platform / ODbL |
