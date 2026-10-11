@@ -18,6 +18,9 @@ enum SplgButtonStyle {
 
   /// Acción destructiva.
   danger,
+
+  /// Transparente con borde y texto blancos, para fondos degradé.
+  ghost,
 }
 
 /// Botón de las pantallas (degradé, radio 16, alto 50). Sin `onPressed` se ve
@@ -79,6 +82,13 @@ class SplgButton extends StatelessWidget {
       case SplgButtonStyle.danger:
         fg = Colors.white;
         deco = BoxDecoration(color: brasa.danger, borderRadius: shape);
+      case SplgButtonStyle.ghost:
+        fg = Colors.white;
+        deco = BoxDecoration(
+          borderRadius: shape,
+          border: Border.all(
+              color: enabled ? Colors.white : Colors.white54, width: 2),
+        );
     }
 
     final textStyle = SplgType.of(context).button.copyWith(color: fg);

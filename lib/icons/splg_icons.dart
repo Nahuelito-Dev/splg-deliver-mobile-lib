@@ -39,4 +39,27 @@ class SplgIcons {
   static const IconData info = PhosphorIconsFill.info;
   static const IconData cash = PhosphorIconsRegular.wallet;
   static const IconData id = PhosphorIconsRegular.identificationCard;
+  static const IconData plus = PhosphorIconsRegular.plus;
+  static const IconData minus = PhosphorIconsRegular.minus;
+  static const IconData close = PhosphorIconsRegular.x;
+  static const IconData trash = PhosphorIconsRegular.trash;
+  static const IconData pencil = PhosphorIconsRegular.pencilSimple;
+  static const IconData house = PhosphorIconsRegular.house;
+  static const IconData calendar = PhosphorIconsRegular.calendarBlank;
+  static const IconData clock = PhosphorIconsRegular.clock;
+  static const IconData truck = PhosphorIconsRegular.truck;
+  static const IconData cart = PhosphorIconsRegular.shoppingCart;
+  static const IconData claim = PhosphorIconsRegular.chatCircleDots;
+  static const IconData bellSlash = PhosphorIconsRegular.bellSlash;
+  static const IconData bank = PhosphorIconsRegular.bank;
+  static const IconData phoneCall = PhosphorIconsRegular.phoneCall;
+  static const IconData notes = PhosphorIconsRegular.notePencil;
+  static const IconData flame = PhosphorIconsRegular.flame;
+  static const IconData more = PhosphorIconsRegular.dotsThreeVertical;
+  static const IconData userMinus = PhosphorIconsRegular.userMinus;
+  static const IconData card = PhosphorIconsRegular.creditCard;
+  static const IconData radioOn = PhosphorIconsFill.radioButton;
+  static const IconData radioOff = PhosphorIconsRegular.circle;
+  static const IconData checkOn = PhosphorIconsFill.checkSquare;
+  static const IconData checkOff = PhosphorIconsRegular.square;
 }

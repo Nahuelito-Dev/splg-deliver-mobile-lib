@@ -8,7 +8,12 @@ enum SplgIllustration {
   emptyList('assets/illustrations/empty_deliveries.png'),
   emptyNotifications('assets/illustrations/empty_notifications.png'),
   success('assets/illustrations/success.png'),
-  error('assets/illustrations/error.png');
+  error('assets/illustrations/error.png'),
+  location('assets/illustrations/location.png'),
+  calendar('assets/illustrations/calendar.png'),
+  support('assets/illustrations/support.png'),
+  noNetwork('assets/illustrations/no_network.png'),
+  claim('assets/illustrations/claim.png');
 
   const SplgIllustration(this.asset);
   final String asset;

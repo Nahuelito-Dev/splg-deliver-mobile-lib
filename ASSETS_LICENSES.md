@@ -29,6 +29,11 @@ Licencia: CC0 1.0 (dominio público; el repositorio la declara en su
 | `empty_notifications.png` | `zoom` | Notificaciones vacías |
 | `success.png` | `target` | Contraseña actualizada |
 | `error.png` | `flash` | Error al cargar |
+| `location.png` | `location` | "Sin direcciones" (Mis direcciones) |
+| `calendar.png` | `calendar` | Pedidos programados (reservada) |
+| `support.png` | `headphone` | Ayuda (reservada) |
+| `no_network.png` | `wifi` | Sin conexión (errores de carga) |
+| `claim.png` | `chat` | "Mis reclamos" vacío |
 
 ## Tipografía
 

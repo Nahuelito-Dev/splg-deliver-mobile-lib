@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../theme/brasa_palette.dart';
 import '../theme/splg_scale.dart';
@@ -21,6 +22,8 @@ class SplgTextField extends StatelessWidget {
     this.onChanged,
     this.onSubmitted,
     this.autofillHints,
+    this.inputFormatters,
+    this.prefix,
   });
 
   final TextEditingController controller;
@@ -35,12 +38,15 @@ class SplgTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
   final Iterable<String>? autofillHints;
+  final List<TextInputFormatter>? inputFormatters;
+  final Widget? prefix;
 
   /// Decoración compartida con [SplgPasswordField].
   static InputDecoration decoration(
     BuildContext context, {
     String? hint,
     Widget? suffixIcon,
+    Widget? prefix,
     Color? fill,
     Color? borderColor,
     double borderWidth = 1.5,
@@ -62,6 +68,8 @@ class SplgTextField extends StatelessWidget {
       isDense: true,
       contentPadding: EdgeInsets.all(context.sp(11)),
       suffixIcon: suffixIcon,
+      prefixIcon: prefix,
+      prefixIconConstraints: const BoxConstraints(),
       enabledBorder: border(borderColor, borderWidth),
       disabledBorder: border(null),
       focusedBorder: border(borderColor ?? scheme.primary, borderWidth),
@@ -82,11 +90,13 @@ class SplgTextField extends StatelessWidget {
       onChanged: onChanged,
       onSubmitted: onSubmitted,
       autofillHints: autofillHints,
+      inputFormatters: inputFormatters,
       autocorrect: false,
       enableSuggestions: !obscure,
       style: SplgType.of(context).body,
-      decoration:
-          decoration(context, hint: hint, suffixIcon: suffixIcon).copyWith(
+      decoration: decoration(context,
+              hint: hint, suffixIcon: suffixIcon, prefix: prefix)
+          .copyWith(
         errorText: errorText,
         errorStyle:
             SplgType.of(context).caption.copyWith(color: context.brasa.danger),
