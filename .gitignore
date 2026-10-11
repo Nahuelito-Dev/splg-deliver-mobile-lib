@@ -29,3 +29,6 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 /build/
 /coverage/
+
+# Entregas y capturas de los agentes (traen emails de cuentas de prueba)
+.orq/

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-TextTheme buildTextTheme(Color textColor) {
+TextTheme buildTextTheme(Color textColor, Color mutedColor) {
   return TextTheme(
     displayLarge: TextStyle(
       fontSize: 57,
@@ -65,7 +65,7 @@ TextTheme buildTextTheme(Color textColor) {
     bodySmall: TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w400,
-      color: textColor.withAlpha(60),
+      color: mutedColor,
     ),
     labelLarge: TextStyle(
       fontSize: 14,
@@ -76,12 +76,12 @@ TextTheme buildTextTheme(Color textColor) {
     labelMedium: TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w500,
-      color: textColor.withAlpha(70),
+      color: mutedColor,
     ),
     labelSmall: TextStyle(
       fontSize: 11,
       fontWeight: FontWeight.w500,
-      color: textColor.withAlpha(60),
+      color: mutedColor,
       letterSpacing: 0.5,
     ),
   );

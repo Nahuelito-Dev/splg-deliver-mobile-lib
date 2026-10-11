@@ -49,7 +49,7 @@ class GasCylinder with _$GasCylinder {
   @override
   @JsonKey(name: "promotions")
   final List<Discount>? discounts;
-  
+
   // @override
   // @JsonKey(name: "exchange_price")
   // final double exchangePrice;
@@ -57,7 +57,7 @@ class GasCylinder with _$GasCylinder {
   // @override
   // @JsonKey(includeFromJson: false, includeToJson: true)
   // final bool exchange;
-  
+
   // @override
   // @JsonKey(name: "stock")
   // final int stock;

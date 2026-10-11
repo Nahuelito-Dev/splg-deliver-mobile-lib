@@ -42,7 +42,7 @@ class Address with _$Address {
   @override
   @JsonKey(name: 'longitude')
   final String? longitude;
-  
+
   @override
   @JsonKey(name: 'postal_code')
   final String? postalCode;
@@ -57,5 +57,5 @@ class Address with _$Address {
 
   @override
   @JsonKey(name: 'isDefault')
-  final bool primary;  
+  final bool primary;
 }

@@ -54,7 +54,7 @@ class Order with _$Order {
   @override
   @JsonKey(name: 'requested_delivery_date')
   final DateTime? requestedDeliveryDate;
-  
+
   @override
   @JsonKey(name: 'actual_delivery_date')
   final DateTime? actualDeliveryDate;

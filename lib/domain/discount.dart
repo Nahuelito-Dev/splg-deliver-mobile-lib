@@ -6,10 +6,10 @@ part 'discount.g.dart';
 @freezed
 @JsonSerializable(explicitToJson: true)
 class Discount with _$Discount {
-
   Discount({required this.quantity, required this.percentage});
-  
-  factory Discount.fromJson(Map<String, dynamic> json) => _$DiscountFromJson(json);
+
+  factory Discount.fromJson(Map<String, dynamic> json) =>
+      _$DiscountFromJson(json);
 
   Map<String, dynamic> toJson() => _$DiscountToJson(this);
 
