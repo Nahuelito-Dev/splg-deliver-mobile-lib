@@ -32,6 +32,18 @@ void main() {
       expect(find.text('Mi perfil'), findsNothing);
     });
 
+    testWidgets('con centerTitle false el título queda pegado a la flecha',
+        (tester) async {
+      await tester.pumpWidget(MaterialApp(
+        theme: AppTheme.lightTheme,
+        home: const Scaffold(
+            appBar: SplgHeader(title: 'Mi jornada', centerTitle: false)),
+      ));
+      final back = tester.getTopRight(find.byTooltip('Volver'));
+      final title = tester.getTopLeft(find.text('Mi jornada'));
+      expect(title.dx - back.dx, lessThanOrEqualTo(12));
+    });
+
     testWidgets('sin flecha si showBack es false', (tester) async {
       await tester.pumpWidget(_wrap(const SizedBox()));
       await tester.pumpWidget(MaterialApp(

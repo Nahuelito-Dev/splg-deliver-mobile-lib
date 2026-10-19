@@ -41,6 +41,8 @@ class SplgHeader extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       centerTitle: centerTitle,
+      leadingWidth: showBack ? 48 : 0,
+      titleSpacing: centerTitle ? null : 4,
       backgroundColor: onGradient ? Colors.transparent : null,
       leading: showBack
           ? IconButton(
