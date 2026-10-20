@@ -25,6 +25,7 @@ class BrasaPalette extends ThemeExtension<BrasaPalette> {
     required this.faint,
     required this.outline,
     required this.outlineSoft,
+    required this.outlineStrong,
     required this.surfaceSunken,
     required this.surfaceMuted,
   });
@@ -47,6 +48,10 @@ class BrasaPalette extends ThemeExtension<BrasaPalette> {
   final Color faint;
   final Color outline;
   final Color outlineSoft;
+
+  /// Borde de los campos de entrada en reposo: >= 3:1 contra la superficie y
+  /// el fondo (WCAG 1.4.11).
+  final Color outlineStrong;
   final Color surfaceSunken;
   final Color surfaceMuted;
 
@@ -69,6 +74,7 @@ class BrasaPalette extends ThemeExtension<BrasaPalette> {
     faint: AppColors.tinta400,
     outline: AppColors.tinta200,
     outlineSoft: AppColors.tinta100,
+    outlineStrong: AppColors.tinta500,
     surfaceSunken: AppColors.tinta50,
     surfaceMuted: AppColors.tinta100,
   );
@@ -92,6 +98,7 @@ class BrasaPalette extends ThemeExtension<BrasaPalette> {
     faint: AppColors.darkFaint,
     outline: AppColors.darkOutline,
     outlineSoft: AppColors.darkOutlineSoft,
+    outlineStrong: AppColors.darkFaint,
     surfaceSunken: AppColors.darkSurfaceSunken,
     surfaceMuted: AppColors.darkSurfaceMuted,
   );
@@ -122,6 +129,7 @@ class BrasaPalette extends ThemeExtension<BrasaPalette> {
       faint: l(faint, other.faint),
       outline: l(outline, other.outline),
       outlineSoft: l(outlineSoft, other.outlineSoft),
+      outlineStrong: l(outlineStrong, other.outlineStrong),
       surfaceSunken: l(surfaceSunken, other.surfaceSunken),
       surfaceMuted: l(surfaceMuted, other.surfaceMuted),
     );

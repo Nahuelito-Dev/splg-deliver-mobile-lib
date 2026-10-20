@@ -54,8 +54,16 @@ class SplgOrderCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(icon, size: 22, color: brasa.primaryStrong),
-                const SizedBox(width: 10),
+                Container(
+                  width: 36,
+                  height: 36,
+                  decoration: BoxDecoration(
+                    color: brasa.primarySoft,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Icon(icon, size: 20, color: brasa.primaryStrong),
+                ),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,7 +97,7 @@ class SplgOrderCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Icon(SplgIcons.next, size: 18, color: brasa.primaryStrong),
+                Icon(SplgIcons.next, size: 18, color: brasa.faint),
               ],
             ),
           ),

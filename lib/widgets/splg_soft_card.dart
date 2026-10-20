@@ -32,8 +32,8 @@ class SplgSoftCard extends StatelessWidget {
       child: Column(
         children: [
           Text(label,
-              style: type.subtitle
-                  .copyWith(color: Theme.of(context).colorScheme.primary)),
+              style:
+                  type.subtitle.copyWith(color: context.brasa.primaryStrong)),
           const SizedBox(height: 2),
           Text(amount, key: amountKey, style: type.amount),
           if (caption != null)

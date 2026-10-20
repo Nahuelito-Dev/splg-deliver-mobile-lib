@@ -30,7 +30,7 @@ class SplgProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final type = SplgType.of(context);
-    final primary = Theme.of(context).colorScheme.primary;
+    final ink = Theme.of(context).colorScheme.onSurface;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 14),
       child: Row(
@@ -44,11 +44,10 @@ class SplgProfileHeader extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name, style: type.subtitle.copyWith(color: primary)),
+                Text(name, style: type.subtitle.copyWith(color: ink)),
                 if (phone != null && phone!.isNotEmpty)
                   Text(phone!,
-                      style: type.bodyStrong.copyWith(
-                          fontWeight: FontWeight.w400, color: primary)),
+                      style: type.body.copyWith(color: context.brasa.muted)),
                 if (caption != null) Text(caption!, style: type.caption),
                 if (linkLabel != null)
                   InkWell(
@@ -56,11 +55,8 @@ class SplgProfileHeader extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4),
                       child: Text(linkLabel!,
-                          style: type.captionStrong.copyWith(
-                              color: context.brasa.accent == primary
-                                  ? primary
-                                  : context.brasa.primaryStrong,
-                              fontWeight: FontWeight.w700)),
+                          style: type.action.copyWith(
+                              fontSize: 10, fontWeight: FontWeight.w700)),
                     ),
                   ),
               ],

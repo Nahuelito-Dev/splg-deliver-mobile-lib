@@ -54,16 +54,11 @@ class _SplgAccordionState extends State<SplgAccordion> {
               padding: const EdgeInsets.only(top: 5),
               child: Container(
                 decoration: BoxDecoration(
-                  color: _open == i
-                      ? brasa.primaryStrong.withValues(alpha: 0.1)
-                      : null,
+                  color: _open == i ? brasa.primarySoft : null,
                   borderRadius: _open == i ? BorderRadius.circular(16) : null,
                   border: _open == i
                       ? null
-                      : Border(
-                          bottom: BorderSide(
-                              color:
-                                  brasa.primaryStrong.withValues(alpha: 0.6))),
+                      : Border(bottom: BorderSide(color: brasa.outline)),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +75,7 @@ class _SplgAccordionState extends State<SplgAccordion> {
                             Expanded(
                               child: Text(widget.entries[i].title,
                                   style: type.subtitle
-                                      .copyWith(fontWeight: FontWeight.w400)),
+                                      .copyWith(fontWeight: FontWeight.w500)),
                             ),
                             AnimatedRotation(
                               duration: const Duration(milliseconds: 250),
@@ -93,7 +88,7 @@ class _SplgAccordionState extends State<SplgAccordion> {
                                         : SplgIcons.down)
                                     : SplgIcons.next,
                                 size: 20,
-                                color: brasa.primaryStrong,
+                                color: brasa.muted,
                               ),
                             ),
                           ],

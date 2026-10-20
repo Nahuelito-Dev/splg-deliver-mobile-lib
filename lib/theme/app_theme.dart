@@ -45,7 +45,7 @@ class AppTheme {
     final radius = BorderRadius.circular(AppRadii.md);
     final outlineBorder = OutlineInputBorder(
       borderRadius: radius,
-      borderSide: BorderSide(color: palette.outline),
+      borderSide: BorderSide(color: palette.outlineStrong),
     );
 
     // En oscuro el primario es la variante clara (`primaryStrong`): como texto

@@ -61,7 +61,7 @@ class _SplgPasswordFieldState extends State<SplgPasswordField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.label, style: type.label),
+        Text(widget.label, style: type.fieldLabel),
         const SizedBox(height: 10),
         TextField(
           controller: widget.controller,
@@ -89,7 +89,7 @@ class _SplgPasswordFieldState extends State<SplgPasswordField> {
                   icon: Icon(
                     _obscure ? SplgIcons.eye : SplgIcons.eyeOff,
                     size: 22,
-                    color: Theme.of(context).colorScheme.primary,
+                    color: brasa.muted,
                   ),
                   onPressed: () => setState(() => _obscure = !_obscure),
                 ),

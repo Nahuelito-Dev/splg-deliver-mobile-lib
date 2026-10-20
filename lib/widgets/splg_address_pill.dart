@@ -25,10 +25,9 @@ class SplgAddressPill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final brasa = context.brasa;
-    final fg = onDark ? Colors.white : brasa.primaryStrong;
-    final bg = onDark
-        ? Colors.white.withValues(alpha: 0.18)
-        : brasa.primaryStrong.withValues(alpha: 0.1);
+    final fg = onDark ? Colors.white : Theme.of(context).colorScheme.onSurface;
+    final bg =
+        onDark ? Colors.white.withValues(alpha: 0.18) : brasa.primarySoft;
     return Material(
       color: bg,
       borderRadius: BorderRadius.circular(14),
@@ -43,7 +42,8 @@ class SplgAddressPill extends StatelessWidget {
                 width: 8,
                 height: 8,
                 decoration: BoxDecoration(
-                  color: dotColor ?? (onDark ? brasa.accent : fg),
+                  color:
+                      dotColor ?? (onDark ? brasa.accent : brasa.primaryStrong),
                   shape: BoxShape.circle,
                 ),
               ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../icons/splg_icons.dart';
 import '../theme/brasa_palette.dart';
+import '../theme/splg_scale.dart';
 import '../theme/splg_type.dart';
 
 /// Casilla con un texto subrayado que abre un documento ("Aceptar Términos y
@@ -41,9 +42,11 @@ class SplgCheckboxLink extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Text(label,
-                  style: SplgType.of(context).captionStrong.copyWith(
-                      decoration:
-                          onLink != null ? TextDecoration.underline : null)),
+                  style: onLink != null
+                      ? SplgType.of(context).action.copyWith(
+                          fontSize: context.sp(10),
+                          decoration: TextDecoration.underline)
+                      : SplgType.of(context).captionStrong),
             ),
           ),
         ),

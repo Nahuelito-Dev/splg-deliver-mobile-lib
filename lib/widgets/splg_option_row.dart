@@ -30,8 +30,9 @@ class SplgOptionRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final brasa = context.brasa;
     final type = SplgType.of(context);
-    final fg = onDark ? Colors.white : brasa.primaryStrong;
-    final valueColor = onDark ? brasa.accent : brasa.ink2;
+    final fg = onDark ? Colors.white : Theme.of(context).colorScheme.onSurface;
+    final iconColor = onDark ? Colors.white : brasa.ink2;
+    final valueColor = onDark ? brasa.accent : brasa.muted;
     return Semantics(
       button: true,
       label: value == null ? title : '$title, $value',
@@ -42,7 +43,7 @@ class SplgOptionRow extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
           child: Row(
             children: [
-              Icon(icon, size: 24, color: fg),
+              Icon(icon, size: 24, color: iconColor),
               const SizedBox(width: 14),
               Expanded(
                 child: Text(title,
@@ -58,7 +59,7 @@ class SplgOptionRow extends StatelessWidget {
                 ),
               const SizedBox(width: 8),
               Icon(dropdown ? SplgIcons.down : SplgIcons.next,
-                  size: 18, color: fg),
+                  size: 18, color: onDark ? fg : brasa.faint),
             ],
           ),
         ),

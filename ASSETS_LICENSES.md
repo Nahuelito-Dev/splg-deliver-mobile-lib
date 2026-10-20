@@ -17,8 +17,10 @@ Todas son del set "3D Icons" de realvjy (https://3dicons.co,
 https://github.com/realvjy/3dicons), estilo `color`, ángulo `dynamic`
 (`mail_sent.png`: ángulo `front`), descargadas del CDN oficial
 (`https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/<ángulo>/color/<nombre>-<ángulo>-color.png`).
+Recoloreadas a la paleta Brasa (corrimiento de matiz hacia llama/gas; grises, blancos
+y negros intactos). La licencia permite la modificación.
 Licencia: CC0 1.0 (dominio público; el repositorio la declara en su
-`LICENSE`). PNG de 400 px, sin modificar.
+`LICENSE`). PNG de 400 px, recoloreados a la paleta Brasa.
 
 | Archivo | Ícono original | Se usa en |
 |---|---|---|

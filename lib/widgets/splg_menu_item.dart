@@ -38,12 +38,16 @@ class SplgMenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final brasa = context.brasa;
     final type = SplgType.of(context);
+    final ink = Theme.of(context).colorScheme.onSurface;
     final Color color = destructive
         ? (dark ? Colors.white : brasa.danger)
-        : (dark ? Colors.white : brasa.primaryStrong);
+        : (dark ? Colors.white : (selected ? brasa.primaryStrong : ink));
+    final Color iconColor = destructive || dark
+        ? color
+        : (selected ? brasa.primaryStrong : brasa.ink2);
     final Color muted = dark ? Colors.white70 : brasa.muted;
     final style =
-        (dark ? type.body : type.subtitle.copyWith(fontWeight: FontWeight.w400))
+        (dark ? type.body : type.subtitle.copyWith(fontWeight: FontWeight.w500))
             .copyWith(color: color, fontSize: context.sp(dark ? 12 : 13));
 
     return Semantics(
@@ -67,7 +71,7 @@ class SplgMenuItem extends StatelessWidget {
             child: Row(
               children: [
                 if (icon != null) ...[
-                  Icon(icon, size: 24, color: color),
+                  Icon(icon, size: 24, color: iconColor),
                   const SizedBox(width: 16),
                 ],
                 Expanded(
@@ -88,7 +92,8 @@ class SplgMenuItem extends StatelessWidget {
                   ),
                 ),
                 if (showChevron && !destructive)
-                  Icon(SplgIcons.next, size: 18, color: color),
+                  Icon(SplgIcons.next,
+                      size: 18, color: dark ? color : brasa.faint),
               ],
             ),
           ),

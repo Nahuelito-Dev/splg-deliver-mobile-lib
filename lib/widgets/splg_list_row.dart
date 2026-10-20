@@ -29,9 +29,7 @@ class SplgListRow extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(15, 15, 10, 15),
         decoration: BoxDecoration(
-          border: Border(
-              bottom: BorderSide(
-                  color: brasa.primaryStrong.withValues(alpha: 0.3))),
+          border: Border(bottom: BorderSide(color: brasa.outline)),
         ),
         child: Row(
           children: [
@@ -39,7 +37,7 @@ class SplgListRow extends StatelessWidget {
             if (badge != null) ...[badge!, const SizedBox(width: 8)],
             if (trailing != null) Text(trailing!, style: type.value),
             const SizedBox(width: 5),
-            Icon(SplgIcons.next, size: 18, color: brasa.primaryStrong),
+            Icon(SplgIcons.next, size: 18, color: brasa.faint),
           ],
         ),
       ),

@@ -37,7 +37,8 @@ class SplgHeader extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final strong = onGradient ? Colors.white : context.brasa.primaryStrong;
+    final strong =
+        onGradient ? Colors.white : Theme.of(context).colorScheme.onSurface;
     return AppBar(
       automaticallyImplyLeading: false,
       centerTitle: centerTitle,
@@ -69,7 +70,11 @@ class SplgHeader extends StatelessWidget implements PreferredSizeWidget {
       ],
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(1),
-        child: Divider(height: 1, indent: 20, endIndent: 20, color: strong),
+        child: Divider(
+            height: 1,
+            indent: 20,
+            endIndent: 20,
+            color: onGradient ? Colors.white : context.brasa.outline),
       ),
     );
   }

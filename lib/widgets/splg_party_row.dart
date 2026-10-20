@@ -36,7 +36,7 @@ class SplgPartyRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final type = SplgType.of(context);
     final brasa = context.brasa;
-    final fg = onDark ? Colors.white : brasa.primaryStrong;
+    final fg = onDark ? Colors.white : Theme.of(context).colorScheme.onSurface;
     final soft = onDark ? Colors.white70 : brasa.muted;
     final hasRating = rating != null && (ratingCount ?? 0) > 0;
     return Row(

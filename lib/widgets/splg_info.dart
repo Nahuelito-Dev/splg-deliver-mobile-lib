@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../theme/brasa_palette.dart';
+import '../theme/splg_scale.dart';
 import '../theme/splg_type.dart';
 
 /// Bloque de datos de una ficha (perfil, vehículo): ícono + título de la
-/// sección y debajo, con sangría, pares "Título: • valor".
+/// sección y debajo, con sangría, pares título (apagado) / valor (tinta).
 class SplgInfoSection extends StatelessWidget {
   const SplgInfoSection({
     super.key,
@@ -27,11 +28,7 @@ class SplgInfoSection extends StatelessWidget {
           children: [
             Icon(icon, size: 24, color: brasa.primaryStrong),
             const SizedBox(width: 16),
-            Expanded(
-                child: Text(title,
-                    style: SplgType.of(context)
-                        .subtitle
-                        .copyWith(fontWeight: FontWeight.w500))),
+            Expanded(child: Text(title, style: SplgType.of(context).subtitle)),
           ],
         ),
         Padding(
@@ -44,7 +41,7 @@ class SplgInfoSection extends StatelessWidget {
             ],
           ),
         ),
-        Divider(color: brasa.primaryStrong.withValues(alpha: 0.35), height: 30),
+        Divider(color: brasa.outline, height: 30),
       ],
     );
   }
@@ -63,10 +60,11 @@ class SplgInfoRow extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: type.bodyStrong),
-        Text('• ${value ?? 'Sin datos'}',
-            style: type.body
-                .copyWith(color: Theme.of(context).colorScheme.primary)),
+        Text(title, style: type.caption.copyWith(fontSize: context.sp(11))),
+        Text(value ?? 'Sin datos',
+            style: value == null
+                ? type.body.copyWith(color: context.brasa.muted)
+                : type.bodyStrong),
       ],
     );
   }

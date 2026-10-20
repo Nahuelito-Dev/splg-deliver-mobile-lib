@@ -31,14 +31,17 @@ class SplgChoiceChips extends StatelessWidget {
             selected: selected == i,
             onSelected: (_) => onSelected(i),
             label: Text(labels[i]),
-            labelStyle: SplgType.of(context).bodyStrong,
+            labelStyle: SplgType.of(context)
+                .bodyStrong
+                .copyWith(color: selected == i ? brasa.primaryStrong : null),
             selectedColor: brasa.primaryStrong.withValues(alpha: 0.2),
             backgroundColor: Theme.of(context).colorScheme.surface,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
               side: BorderSide(
-                  color:
-                      selected == i ? Colors.transparent : brasa.primaryStrong),
+                  color: selected == i
+                      ? brasa.primaryStrong
+                      : brasa.outlineStrong),
             ),
           ),
       ],

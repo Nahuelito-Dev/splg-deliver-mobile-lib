@@ -32,7 +32,8 @@ class SplgEmptyState extends StatelessWidget {
   Widget build(BuildContext context) {
     final type = SplgType.of(context);
     final brasa = context.brasa;
-    final titleColor = onDark ? Colors.white : brasa.primaryStrong;
+    final titleColor =
+        onDark ? Colors.white : Theme.of(context).colorScheme.onSurface;
     final textColor = onDark ? Colors.white : brasa.ink2;
     return Center(
       child: SingleChildScrollView(

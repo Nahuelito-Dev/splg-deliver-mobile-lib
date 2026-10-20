@@ -28,11 +28,14 @@ class SplgRadioRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final brasa = context.brasa;
     final type = SplgType.of(context);
-    final fg = onDark ? Colors.white : brasa.primaryStrong;
+    final ink = Theme.of(context).colorScheme.onSurface;
+    final fg = onDark ? Colors.white : ink;
+    final mark = onDark
+        ? Colors.white
+        : (selected ? brasa.primaryStrong : brasa.outlineStrong);
     final enabled = onTap != null;
-    final tint = onDark
-        ? Colors.white.withValues(alpha: 0.18)
-        : brasa.primaryStrong.withValues(alpha: 0.1);
+    final tint =
+        onDark ? Colors.white.withValues(alpha: 0.18) : brasa.primarySoft;
     return Semantics(
       inMutuallyExclusiveGroup: true,
       checked: selected,
@@ -51,7 +54,7 @@ class SplgRadioRow extends StatelessWidget {
               child: Row(
                 children: [
                   if (icon != null) ...[
-                    Icon(icon, size: 22, color: fg),
+                    Icon(icon, size: 22, color: onDark ? fg : brasa.ink2),
                     const SizedBox(width: 12),
                   ],
                   Expanded(
@@ -67,7 +70,7 @@ class SplgRadioRow extends StatelessWidget {
                     ),
                   ),
                   Icon(selected ? SplgIcons.radioOn : SplgIcons.radioOff,
-                      size: 24, color: fg),
+                      size: 24, color: mark),
                 ],
               ),
             ),

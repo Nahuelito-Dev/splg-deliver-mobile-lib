@@ -57,7 +57,7 @@ class SplgPhoneField extends StatelessWidget {
         child: Text('+54',
             style: SplgType.of(context)
                 .value
-                .copyWith(color: context.brasa.primaryStrong)),
+                .copyWith(color: context.brasa.muted)),
       ),
     );
   }
