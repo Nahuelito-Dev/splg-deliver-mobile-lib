@@ -102,6 +102,15 @@ class AppTheme {
       package: 'splg_lib',
       brightness: brightness,
       colorScheme: scheme,
+      // Android toma las transiciones y el efecto táctil de iOS: las dos apps
+      // tienen que verse y moverse igual en cualquier teléfono.
+      pageTransitionsTheme: const PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        },
+      ),
+      splashFactory: InkRipple.splashFactory,
       scaffoldBackgroundColor: canvas,
       canvasColor: canvas,
       dividerColor: palette.outline,
