@@ -64,6 +64,17 @@ void main() {
       expect(deco.hintStyle!.color, BrasaPalette.light.muted);
     });
 
+    testWidgets('de una línea no sugiere ni autocorrige; multilínea sugiere',
+        (t) async {
+      await t.pumpWidget(
+          _wrap(SplgTextField(controller: TextEditingController())));
+      expect(_field(t).enableSuggestions, isFalse);
+      expect(_field(t).autocorrect, isFalse);
+      await t.pumpWidget(_wrap(
+          SplgTextField(controller: TextEditingController(), minLines: 3)));
+      expect(_field(t).enableSuggestions, isTrue);
+    });
+
     testWidgets('por defecto es de una línea', (t) async {
       await t.pumpWidget(
           _wrap(SplgTextField(controller: TextEditingController())));

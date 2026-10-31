@@ -86,8 +86,7 @@ class SplgTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final multiline =
-        !obscure && ((maxLines ?? 1) > 1 || (minLines ?? 1) > 1);
+    final multiline = !obscure && ((maxLines ?? 1) > 1 || (minLines ?? 1) > 1);
     final min = multiline ? (minLines ?? 1) : null;
     final max = obscure ? 1 : (multiline ? _maxOf(min!, maxLines) : 1);
     return TextField(
@@ -106,7 +105,7 @@ class SplgTextField extends StatelessWidget {
       autocorrect: false,
       textCapitalization:
           multiline ? TextCapitalization.sentences : TextCapitalization.none,
-      enableSuggestions: !obscure,
+      enableSuggestions: multiline,
       style: SplgType.of(context).body,
       decoration: decoration(context,
               hint: hint, suffixIcon: suffixIcon, prefix: prefix)
