@@ -16,6 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$Discount {
   int get quantity; // El backend envía la clave 'discountPercentage' (no 'percentage').
   double get percentage;
+  double? get unitPrice;
 
   /// Create a copy of Discount
   /// with the given fields replaced by the non-null parameter values.
@@ -32,16 +33,18 @@ mixin _$Discount {
             (identical(other.quantity, quantity) ||
                 other.quantity == quantity) &&
             (identical(other.percentage, percentage) ||
-                other.percentage == percentage));
+                other.percentage == percentage) &&
+            (identical(other.unitPrice, unitPrice) ||
+                other.unitPrice == unitPrice));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, quantity, percentage);
+  int get hashCode => Object.hash(runtimeType, quantity, percentage, unitPrice);
 
   @override
   String toString() {
-    return 'Discount(quantity: $quantity, percentage: $percentage)';
+    return 'Discount(quantity: $quantity, percentage: $percentage, unitPrice: $unitPrice)';
   }
 }
 
@@ -50,7 +53,7 @@ abstract mixin class $DiscountCopyWith<$Res> {
   factory $DiscountCopyWith(Discount value, $Res Function(Discount) _then) =
       _$DiscountCopyWithImpl;
   @useResult
-  $Res call({int quantity, double percentage});
+  $Res call({int quantity, double percentage, double? unitPrice});
 }
 
 /// @nodoc
@@ -67,6 +70,7 @@ class _$DiscountCopyWithImpl<$Res> implements $DiscountCopyWith<$Res> {
   $Res call({
     Object? quantity = null,
     Object? percentage = null,
+    Object? unitPrice = freezed,
   }) {
     return _then(Discount(
       quantity: null == quantity
@@ -77,6 +81,10 @@ class _$DiscountCopyWithImpl<$Res> implements $DiscountCopyWith<$Res> {
           ? _self.percentage
           : percentage // ignore: cast_nullable_to_non_nullable
               as double,
+      unitPrice: freezed == unitPrice
+          ? _self.unitPrice
+          : unitPrice // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }

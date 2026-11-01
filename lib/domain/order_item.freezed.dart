@@ -16,6 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$OrderItem {
   int get quantity;
   GasCylinder get cylinder;
+  double? get subtotal;
 
   /// Create a copy of OrderItem
   /// with the given fields replaced by the non-null parameter values.
@@ -32,16 +33,18 @@ mixin _$OrderItem {
             (identical(other.quantity, quantity) ||
                 other.quantity == quantity) &&
             (identical(other.cylinder, cylinder) ||
-                other.cylinder == cylinder));
+                other.cylinder == cylinder) &&
+            (identical(other.subtotal, subtotal) ||
+                other.subtotal == subtotal));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, quantity, cylinder);
+  int get hashCode => Object.hash(runtimeType, quantity, cylinder, subtotal);
 
   @override
   String toString() {
-    return 'OrderItem(quantity: $quantity, cylinder: $cylinder)';
+    return 'OrderItem(quantity: $quantity, cylinder: $cylinder, subtotal: $subtotal)';
   }
 }
 
@@ -50,7 +53,7 @@ abstract mixin class $OrderItemCopyWith<$Res> {
   factory $OrderItemCopyWith(OrderItem value, $Res Function(OrderItem) _then) =
       _$OrderItemCopyWithImpl;
   @useResult
-  $Res call({GasCylinder cylinder, int quantity});
+  $Res call({GasCylinder cylinder, int quantity, double? subtotal});
 }
 
 /// @nodoc
@@ -67,6 +70,7 @@ class _$OrderItemCopyWithImpl<$Res> implements $OrderItemCopyWith<$Res> {
   $Res call({
     Object? cylinder = null,
     Object? quantity = null,
+    Object? subtotal = freezed,
   }) {
     return _then(OrderItem(
       cylinder: null == cylinder
@@ -77,6 +81,10 @@ class _$OrderItemCopyWithImpl<$Res> implements $OrderItemCopyWith<$Res> {
           ? _self.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int,
+      subtotal: freezed == subtotal
+          ? _self.subtotal
+          : subtotal // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }

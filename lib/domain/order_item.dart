@@ -7,7 +7,7 @@ part 'order_item.g.dart';
 @freezed
 @JsonSerializable(explicitToJson: true)
 class OrderItem with _$OrderItem {
-  OrderItem({required this.cylinder, this.quantity = 0});
+  OrderItem({required this.cylinder, this.quantity = 0, this.subtotal});
 
   factory OrderItem.fromJson(Map<String, dynamic> json) =>
       _$OrderItemFromJson(json);
@@ -21,4 +21,10 @@ class OrderItem with _$OrderItem {
   @override
   @JsonKey(name: 'gas_cylinder')
   final GasCylinder cylinder;
+
+  /// Lo que cobra este renglón, calculado por el back (promoción incluida).
+  /// Null en un renglón que todavía no es parte de un pedido.
+  @override
+  @JsonKey(name: 'subtotal')
+  final double? subtotal;
 }

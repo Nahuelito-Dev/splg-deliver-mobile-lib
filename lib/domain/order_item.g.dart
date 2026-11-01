@@ -10,9 +10,11 @@ OrderItem _$OrderItemFromJson(Map<String, dynamic> json) => OrderItem(
       cylinder:
           GasCylinder.fromJson(json['gas_cylinder'] as Map<String, dynamic>),
       quantity: (json['quantity'] as num?)?.toInt() ?? 0,
+      subtotal: (json['subtotal'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$OrderItemToJson(OrderItem instance) => <String, dynamic>{
       'quantity': instance.quantity,
       'gas_cylinder': instance.cylinder.toJson(),
+      'subtotal': instance.subtotal,
     };
