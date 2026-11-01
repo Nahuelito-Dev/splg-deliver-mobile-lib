@@ -1,0 +1,40 @@
+name: Checks
+
+# Gate de cada PR a develop o main y de cada push a develop: analyze + test de la propia lib.
+# Un cambio de la lib se prueba contra las dos apps usando el MISMO nombre de rama en
+# splg-app-cliente y splg-app-chofer: su CI trae esta lib con esa rama (ver README).
+on:
+  pull_request:
+    branches: [develop, main]
+    paths-ignore:
+      - '**.md'
+      - '.github/workflows/release.yml'
+  push:
+    branches: [develop]
+    paths-ignore:
+      - '**.md'
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  TZ: UTC
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.41.7
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze --no-fatal-infos
+      - run: flutter test
