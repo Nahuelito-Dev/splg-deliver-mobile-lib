@@ -151,6 +151,38 @@ void main() {
       expect(ApiErrorText.isInProgress(400, data), isFalse);
     });
 
+    test('el 409 de idempotencia se reconoce por el code del back', () {
+      final data = {
+        'statusCode': 409,
+        'error': 'Conflicto',
+        'code': 'IDEMPOTENCY_IN_PROGRESS',
+        'message':
+            'Hay otra solicitud en curso con la misma clave de idempotencia: reintentá en unos segundos.',
+      };
+      expect(ApiErrorText.isInProgress(409, data), isTrue);
+      expect(ApiErrorText.businessMessage(409, data), isNull);
+      expect(ApiErrorText.of(409, data), ApiErrorText.inProgress);
+    });
+
+    test('el 409 de idempotencia en castellano sin code también se reconoce',
+        () {
+      final data = {
+        'message':
+            'Hay otra solicitud en curso con la misma clave de idempotencia: reintentá en unos segundos.',
+      };
+      expect(ApiErrorText.isInProgress(409, data), isTrue);
+    });
+
+    test('un 409 de negocio con otro code no es «en curso»', () {
+      final data = {
+        'code': 'PRICE_CHANGED',
+        'message': 'Cambió el precio del pedido.',
+      };
+      expect(ApiErrorText.isInProgress(409, data), isFalse);
+      expect(ApiErrorText.businessMessage(409, data),
+          'Cambió el precio del pedido.');
+    });
+
     test('reintentable: red, 429 y 5xx', () {
       expect(ApiErrorText.isRetryable(null), isTrue);
       expect(ApiErrorText.isRetryable(429), isTrue);

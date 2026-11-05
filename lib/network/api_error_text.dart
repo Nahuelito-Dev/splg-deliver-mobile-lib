@@ -27,11 +27,14 @@ class ApiErrorText {
     return text;
   }
 
-  /// 409 técnico de idempotencia ("Request en curso con la misma
-  /// Idempotency-Key…"): la primera llamada todavía se está procesando.
+  /// 409 técnico de idempotencia (`code: IDEMPOTENCY_IN_PROGRESS`): la primera
+  /// llamada con la misma `Idempotency-Key` todavía se está procesando. Si el
+  /// back no manda `code`, se reconoce por el texto (inglés o castellano).
   static bool isInProgress(int? status, dynamic data) {
     if (status != 409) return false;
-    return (_messageOf(data) ?? '').toLowerCase().contains('idempotency');
+    if (data is Map && data['code'] == 'IDEMPOTENCY_IN_PROGRESS') return true;
+    final text = (_messageOf(data) ?? '').toLowerCase();
+    return text.contains('idempotency') || text.contains('idempotencia');
   }
 
   /// El texto a mostrar para una respuesta [status] con cuerpo [data]
